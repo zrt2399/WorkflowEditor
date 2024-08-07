@@ -1,0 +1,17 @@
+﻿<Application x:Class="WorkflowEditor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WorkflowEditor"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <SolidColorBrush x:Key="SystemColorsWindow" Color="#FFEEEEF2" />
+            <SolidColorBrush x:Key="EnvironmentMainWindowActiveDefaultBorder" Color="#FF9B9FB9" />
+
+            <!--<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/WorkflowEditor;Component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>-->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application> 
