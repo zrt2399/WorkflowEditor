@@ -8,12 +8,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All" />
 		<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include="Images\" />
-		<None Include="..\README.md"/> 
+		<None Include="..\README.md" />
 	</ItemGroup>
 </Project>
