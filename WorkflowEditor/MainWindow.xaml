@@ -38,7 +38,6 @@
                     <MenuItem Command="{Binding DeleteWorkflowItemCommand}" Header="删除选中流程" />
                     <MenuItem Command="{Binding SelectAllCommand}" Header="选择全部" />
                     <MenuItem Command="{Binding UnselectAllCommand}" Header="取消全部" />
-                    <MenuItem Command="{Binding SaveAsImageCommand}" Header="保存为Png" />
                 </ContextMenu>
             </controls:WorkflowEditor.ContextMenu>
             <controls:WorkflowEditor.PathTemplate>

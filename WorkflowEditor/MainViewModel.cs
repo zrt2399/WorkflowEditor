@@ -18,7 +18,7 @@ namespace WorkflowEditor
             //WorkflowItemViewModels.Add(new WorkflowItemViewModel() { Name = "开始", StepType = StepType.Begin, Left = 100 });
             //WorkflowItemViewModels.Add(new WorkflowItemViewModel() { Name = "love", StepType = StepType.Nomal, Left = 200, Top = 200 });
             //WorkflowItemViewModels.Add(new WorkflowItemViewModel() { Name = "结束", StepType = StepType.End, Left = 300, Top = 400 });
-            ////vm内设置必须双向设置
+            ////vm内设置必须双向设置，否侧曲线只会更新一端
             //WorkflowItemViewModels.Last().LastStep = WorkflowItemViewModels[1];
             //WorkflowItemViewModels[1].NextStep = WorkflowItemViewModels.Last();
 
@@ -29,8 +29,8 @@ namespace WorkflowEditor
                 WorkflowItemViewModel workflowItemViewModel = new WorkflowItemViewModel();
                 workflowItemViewModel.Name = EnumDescriptionConverter.GetEnumDesc(stepType);
                 workflowItemViewModel.StepType = stepType;
-                workflowItemViewModel.Left = point.X.Adsorb(workflowEditor.GridSize);
-                workflowItemViewModel.Top = point.Y.Adsorb(workflowEditor.GridSize);
+                workflowItemViewModel.Left = point.X;
+                workflowItemViewModel.Top = point.Y;
                 WorkflowItemViewModels.Add(workflowItemViewModel);
             });
             DeleteWorkflowItemCommand = new RelayCommand(() =>
@@ -62,9 +62,7 @@ namespace WorkflowEditor
         public ICommand AddWorkflowItemCommand { get; }
 
         public ICommand DeleteWorkflowItemCommand { get; }
-
-        public ICommand SaveAsImageCommand { get; }
-
+ 
         public ICommand SelectAllCommand { get; }
 
         public ICommand UnselectAllCommand { get; }

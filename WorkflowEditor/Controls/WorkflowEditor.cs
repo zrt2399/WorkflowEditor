@@ -377,14 +377,9 @@ namespace WorkflowEditor.Controls
             UpdateSelectedItems();
             if (visualAdded is WorkflowItem added)
             {
-                if (double.IsNaN(GetLeft(added)))
-                {
-                    SetLeft(added, 0);
-                }
-                if (double.IsNaN(GetTop(added)))
-                {
-                    SetTop(added, 0);
-                }
+                SetLeft(added, Adsorb(GetLeft(added)));
+                SetTop(added, Adsorb(GetTop(added)));
+
                 added.EditorParent = this;
                 added.MouseLeftButtonDown += WorkflowItem_MouseLeftButtonDown;
                 added.Selected += WorkflowItem_SelectedChanged;
@@ -637,7 +632,7 @@ namespace WorkflowEditor.Controls
                 _selectionArea.Width = width;
                 _selectionArea.Height = height;
 
-                if (width >= 1 && height >= 1)
+                if (width >= 1 || height >= 1)
                 {
                     Rect selectedArea = new Rect(x, y, width, height);
                     RectangleGeometry rectangleGeometry = new RectangleGeometry(selectedArea);

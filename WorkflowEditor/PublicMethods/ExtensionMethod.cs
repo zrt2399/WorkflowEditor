@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
+using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
-using System.IO;
-using System.Windows.Markup;
-using System.ComponentModel;
-using System.Globalization;
-using System.Reflection;
 
 namespace WorkflowEditor.PublicMethods
 {
@@ -21,7 +21,7 @@ namespace WorkflowEditor.PublicMethods
         {
             if (double.IsNaN(value))
             {
-                return value;
+                return 0;
             }
             int quotient = (int)(value / gridSize);
             var min = Math.Max(0, gridSize * quotient);

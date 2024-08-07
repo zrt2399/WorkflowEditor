@@ -5,9 +5,9 @@
                     xmlns:converters="clr-namespace:WorkflowEditor.Converters">
 
     <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-    <converters:WorkflowItemEllipseItemConverter x:Key="WorkflowItemEllipseItemConverter" />
+    <converters:EllipseItemVisibilityConverter x:Key="EllipseItemVisibilityConverter" />
     <converters:DoNoThingConverter x:Key="DoNoThingConverter" />
-    <converters:ParallelogramEllipseConverter x:Key="ParallelogramEllipseConverter" />
+    <converters:EllipseItemMarginConverter x:Key="EllipseItemMarginConverter" />
 
     <Style x:Key="WorkflowEditorBaseStyle" TargetType="controls:WorkflowEditor">
         <Setter Property="Focusable" Value="True" />
@@ -40,7 +40,9 @@
                                           BorderThickness="{TemplateBinding BorderThickness}"
                                           Geometry="{Binding Geometry, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}">
                         <controls:SimplePanel>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 
                             <!--  左边的中间圆形  -->
                             <controls:EllipseItem x:Name="EllipseLeft"
@@ -116,7 +118,7 @@
         <Setter Property="BorderBrush" Value="#7B68EE" />
         <Setter Property="Visibility">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource WorkflowItemEllipseItemConverter}">
+                <MultiBinding Converter="{StaticResource EllipseItemVisibilityConverter}">
                     <Binding Path="Dock" RelativeSource="{RelativeSource Mode=Self}" />
                     <Binding Path="StepType" RelativeSource="{RelativeSource AncestorType=controls:WorkflowItem}" />
                 </MultiBinding>
@@ -124,7 +126,7 @@
         </Setter>
         <Setter Property="Margin">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource ParallelogramEllipseConverter}">
+                <MultiBinding Converter="{StaticResource EllipseItemMarginConverter}">
                     <Binding Path="ActualWidth" RelativeSource="{RelativeSource Mode=Self}" />
                     <Binding Path="ActualHeight" RelativeSource="{RelativeSource Mode=Self}" />
                     <Binding Path="Dock" RelativeSource="{RelativeSource Mode=Self}" />

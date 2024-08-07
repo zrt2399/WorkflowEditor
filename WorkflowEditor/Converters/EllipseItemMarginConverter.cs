@@ -8,7 +8,7 @@ using WorkflowEditor.Controls;
 
 namespace WorkflowEditor.Converters
 {
-    public class ParallelogramEllipseConverter : IMultiValueConverter
+    public class EllipseItemMarginConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
